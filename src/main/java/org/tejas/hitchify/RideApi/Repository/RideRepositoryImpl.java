@@ -85,7 +85,6 @@ public class RideRepositoryImpl  implements RideRepository {
         double endLatitude =endGeoPoint.getY();
         double endRadius = 100.0 / 6371.0;
 
-//        Query query1 = new BasicQuery("{$and: [ {startGeoPoint: {$geoWithin: {$centerSphere: [[73.8567, 18.5204],0.156961230]}}},{endGeoPoint: {$geoWithin: {$centerSphere: [[91.5174536, 24.797083],0.156961230]}}}]}");
         Criteria startCriteria = Criteria.where("startGeoPoint").withinSphere(new Circle(startLongitude, startLatitude, startRadius));
         Criteria endCriteria = Criteria.where("endGeoPoint").withinSphere(new Circle(endLongitude, endLatitude, endRadius));
         Query query = new Query(new Criteria().andOperator(startCriteria, endCriteria));
