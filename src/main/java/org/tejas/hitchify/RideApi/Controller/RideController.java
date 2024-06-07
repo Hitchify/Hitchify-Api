@@ -27,6 +27,7 @@ List<RideData> rides = rideRepository.findAll();
         return new ResponseEntity<>(rides, HttpStatus.OK);
     }
 
+    
     @PostMapping("/Rides")
     public ResponseEntity<postRideResponse> postRide(@RequestBody postRideRequest ride) {
         postRideResponse ridedata = new postRideResponse();
